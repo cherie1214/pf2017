@@ -1,0 +1,51 @@
+
+
+@font-face{
+	font-family:"NanumGothic-Regular";
+	src:url('../font/NanumGothic-Regular.eot');
+	src:url('../font/NanumGothic-Regular.eot?#iefix') format('embedded-opentype'),
+	url('../font/NanumGothic-Regular.woff') format('woff'),
+	url('../font/NanumGothic-Regular.ttf') format('truetype');
+}
+
+@font-face{
+	font-family:"NanumGothic-Bold";
+	src:url('../font/NanumGothic-Bold.eot');
+	src:url('../font/NanumGothic-Bold.eot?#iefix') format('embedded-opentype'),
+	url('../font/NanumGothic-Bold.woff') format('woff'),
+	url('../font/NanumGothic-Bold.ttf') format('truetype');
+}
+
+* {margin: 0; padding: 0;}
+ul {list-style:none;}
+a {text-decoration:none;}
+html,body{height: 100%; max-width:100%;}
+body {font-family: "NanumGothic-Regular", sans-serif; }
+h1, strong {font-weight: normal; font-family: "NanumGothic-Bold", sans-serif;}
+
+.wrapper {position:relative;width:100%;height:100%;}
+
+
+.header {z-index:10;position:absolute;margin-top:30px;width:100%;height:100px;}
+.menu {position:absolute;top:8px;left:30px;}
+.menu-btn {width:36px;cursor:pointer;}
+.menu-btn span {display:block;margin-top:8px;width:100%;height:2px;background-color: #fff;}
+.menu-btn span:first-child {margin-top: 0;}
+.menu-btn span.middle {width:80%;}
+.menu-btn span.bottom {width:60%;}
+
+.gnb {display:none;margin-top:20px;}
+.gnb.on {display:block;}
+.gnb a {display:block;margin-top:10px;font-size:25px;color:#fff;letter-spacing:7px;}
+.gnb a::after {display:block;content:" ";width:0%;height:2px;background-color: #fff;-webkit-transition:width 0.3s ease;-o-transition:width 0.3s ease;transition:width 0.3s ease;}
+.gnb a.on::after {width:100%;}
+.gnb visited {color:#fff;}
+
+.logo {margin:0 auto;width:300px;text-align:center;}
+.logo h1 a {font-weight:700;color:#fff;}
+.logo h1 a:visited {color:#fff;}
+.logo h1 a span {display:block;font-size:35px;letter-spacing:9px;}
+.logo h1 a span:last-child {font-size:13px;font-weight:500;}
+
+.banner {position:relative;width: 100%;height:80%;background: url('../images/bg_2.jpg') no-repeat center center; -webkit-background-size: cover;background-size: cover;}
+.banner .filter {z-index:5;position:absolute;display:block;top:0;left:0;width:100%;height:100%;font-size:0;vertical-align:top;background:rgba(0,0,0,0.2);}
