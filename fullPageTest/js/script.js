@@ -19,5 +19,12 @@ $(function(){
 
     $('.gnb a').mouseenter(function(){
         $(this).addClass('on').siblings().removeClass('on');
-    });
+    }); // menu event
+
+
+
+	$('.contents').fullpage({
+		anchors: ['firstPage', 'secondPage', 'thirdPage']
+	}); // fullpage event
+
 })
