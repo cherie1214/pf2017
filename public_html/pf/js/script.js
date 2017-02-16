@@ -1,26 +1,39 @@
 $(function(){
-    new WOW().init(); // wow event
+    // wow event
+    new WOW().init();
 
+    function skillsEvent(){
+        var skillsHeight = $('.skills').height()
+        $('.skills').css({
+            marginTop : - skillsHeight / 2
+        })
+    }
+
+    skillsEvent();
+
+    window.onresize = function() {
+        skillsEvent();
+    };
+        // menu event
     $('.menu').mouseenter(function(){
         $('.gnb').addClass('on');
         if($('.gnb').hasClass('on')){
             $('.menu-btn').children('span').animate({width: "100%"},100);
         }
     });
-
     $('.menu').mouseleave(function(){
         $('.gnb').removeClass('on');
         if(!$('.gnb').hasClass('on')){
-            $('.menu-btn').children('span.middle').animate({width: "80%"},100);
-            $('.menu-btn').children('span.bottom').animate({width: "60%"},100);
+            $('.menu-btn').children('span.menu_btn_middle').animate({width: "80%"},100);
+            $('.menu-btn').children('span.menu_btn_bottom').animate({width: "60%"},100);
         }
         $('.gnb a').siblings().removeClass('on');
     });
-
     $('.gnb a').mouseenter(function(){
         $(this).addClass('on').siblings().removeClass('on');
-    }); // menu event
+    });
 
+    // mousewheel scroll event
     var pages = [];
     var cScrollTop = 0;
     var index = 0;
@@ -79,12 +92,12 @@ $(function(){
     });
 
     $("html, body").on('mousewheel DOMMouseScroll', function(e) {
-        console.log(cScrollTop , pages);
+        // console.log(cScrollTop , pages);
         //index 구하기
         if(cScrollTop == pages[0]) index = 0;
         if(cScrollTop == pages[1]) index = 1;
 
-        console.log(index)
+        // console.log(index)
 
         //이벤트 확인 & 변수 통일
         var E = e.originalEvent;
@@ -100,5 +113,17 @@ $(function(){
             movement(delta,700);
             blockWheel();
         }
+
     });
+    $('.gnb a.gnb_works').click(function(e){
+        index = 1;
+        $('body, html').animate({
+            scrollTop : pages[index]
+        },700,'swing');
+        check = 1;
+        setTimeout(function(){
+            check = 0;
+            playWheel();
+        },700)
+    })
 })
