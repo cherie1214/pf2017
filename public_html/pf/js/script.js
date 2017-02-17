@@ -2,6 +2,8 @@ $(function(){
     // wow event
     new WOW().init();
 
+
+
     function skillsEvent(){
         var skillsHeight = $('.skills').height()
         $('.skills').css({
