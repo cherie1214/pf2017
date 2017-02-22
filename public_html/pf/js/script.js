@@ -2,7 +2,7 @@ $(function(){
     // wow event
     new WOW().init();
 
-
+    
 
     function skillsEvent(){
         var skillsHeight = $('.skills').height()
@@ -117,7 +117,7 @@ $(function(){
         }
 
     });
-    $('.gnb a.gnb_works').click(function(e){
+    $('.gnb a.gnb_works, .down-btn a').click(function(e){
         index = 1;
         $('body, html').animate({
             scrollTop : pages[index]
