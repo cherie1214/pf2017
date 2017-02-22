@@ -2,20 +2,51 @@ $(function(){
     // wow event
     new WOW().init();
 
-    
-
+    // 메인 스킬 버티컬 가운데 정렬
     function skillsEvent(){
         var skillsHeight = $('.skills').height()
         $('.skills').css({
             marginTop : - skillsHeight / 2
         })
     }
-
     skillsEvent();
 
-    window.onresize = function() {
+    // "view project" 버티컬 가운데 정렬
+    function viewPjtVertical(){
+        var viewPjtHeight = $('.view-pjt').height();
+        $('.view-pjt').css({
+            marginTop : - viewPjtHeight / 2
+        })
+    }
+    viewPjtVertical();
+
+    // works-box 버니털 미들 정렬
+    var wokrsLeft = [];
+    var wokrsRight = [];
+
+    function worksBoxVertical(){
+        wokrsLeft = [];
+        wokrsRight = [];
+        $('.works a .float-left').each(function(i,e){
+            wokrsLeft.push($(e).height());
+        });
+        $('.works a .float-right').each(function(i,e){
+            wokrsRight.push($(e).height());
+        });
+        $('.works a .float-left').each(function(i,e){
+
+            $('.works a .float-right').eq(i).css({
+                marginTop : (wokrsLeft[i] - wokrsRight[i]) / 2
+            })
+            console.log(i,$('.works a .float-right').eq(i));
+        });
+    }
+    worksBoxVertical();
+
+    $(window).resize(function(){
         skillsEvent();
-    };
+        worksBoxVertical();
+    });
         // menu event
     $('.menu').mouseenter(function(){
         $('.gnb').addClass('on');
@@ -128,4 +159,15 @@ $(function(){
             playWheel();
         },700)
     })
+
+
+    // 포트폴리오 a.on
+    $('.works-box a').mouseenter(function(){
+        $(this).addClass('on')
+    })
+    $('.works-box a').mouseleave(function(){
+        $(this).removeClass('on')
+    })
+
+
 })

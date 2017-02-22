@@ -18,6 +18,7 @@ ul {list-style:none;}
 a {text-decoration:none;}
 html,body{max-width:100%;min-width:320px;height:100%;}
 body * {font-family: "NanumGothic-Regular", sans-serif;}
+strong {font-family: "NanumGothic-Bold", sans-serif;}
 ::-webkit-scrollbar {display:none;}
 
 .wrapper {position:relative;width:100%;height:100%;-ms-overflow-style:none;overflow:-moz-scrollbars-none;}
@@ -56,36 +57,52 @@ body * {font-family: "NanumGothic-Regular", sans-serif;}
 .about .bottom {display:table;width:100%;height:20%;}
 .about .bottom .text {display:table-cell;padding-left:5%;width:75%;font-size:45px;color:#1b2236;font-weight:600;letter-spacing: 6px;vertical-align:middle;}
 .about .bottom .text span {height:0;-webkit-animation: cursormove 1s infinite; /* Safari 4.0 - 8.0 */animation: cursormove 1s infinite;}
-/* Safari 4.0 - 8.0 */
-@-webkit-keyframes cursormove {
-    0%   {opacity: 0;}
-    49%  {opacity: 0;}
-    50%  {opacity: 1;}
-    100% {opacity: 1;}
-}
-/* Standard syntax */
-@keyframes cursormove {
-    0%   {opacity: 0;}
-    49%  {opacity: 0;}
-    50%  {opacity: 1;}
-    100% {opacity: 1;}
-}
+@-webkit-keyframes cursormove {0%   {opacity: 0;} 49%  {opacity: 0;} 50%  {opacity: 1;} 100% {opacity: 1;}}/* Safari 4.0 - 8.0 */
+@keyframes cursormove {0%   {opacity: 0;} 49%  {opacity: 0;} 50%  {opacity: 1;} 100% {opacity: 1;}}/* Standard syntax */
 .about .bottom .down-btn {display:table-cell;padding-right:5%;width:15%;height:100%;text-align:right;vertical-align:middle;}
 .about .bottom .down-btn a {position:relative;display:inline-block;padding-right:25px;height:50px;line-height:50px;color:#1b2236;}
 .about .bottom .down-btn a span {position:absolute;right:0;font-size:40px;-webkit-animation:  downmove 1s ease infinite; /* Safari 4.0 - 8.0 */animation: downmove 1s ease infinite;}
-/* Safari 4.0 - 8.0 */
-@-webkit-keyframes downmove {
-    0%   {top:0px;}
-    50%  {top:3px;}
-    100% {top:0px;}
-}
-/* Standard syntax */
-@keyframes downmove {
-    0%   {top:0px;}
-    50%  {top:3px;}
-    100% {top:0px;}
-}
-.works {border:1px red solid;}
+@-webkit-keyframes downmove {0%   {top:0px;} 50%  {top:3px;} 100% {top:0px;}} /* Safari 4.0 - 8.0 */
+@keyframes downmove {0%   {top:0px;} 50%  {top:3px;} 100% {top:0px;}}/* Standard syntax */
+
+.works {overflow:hidden;width:100%;height:auto;}
+.works-box {overflow:hidden;width:100%;height:100%;}
+.works-box a {overflow:hidden;display:block;margin:0 auto;padding:60px 90px;max-width:1400px;}
+.works-box a .float-left {overflow:hidden;float:left;display:block;}
+.works-box a .float-right {overflow:hidden;float:right;display:block;position:relative;}
+.works-box a .img-box {overflow:hidden;position:relative;display:block;text-align:center;}
+.works-box a .img-box::after {position:absolute;top:0;left:0;display:block;content:" ";width:100%;height:100%;opacity:0;background:#000;-webkit-animation:imgBlindOut 0.5s ease forwards;animation: imgBlindOut 0.5s ease forwards;}
+.works-box a .img-box .view-pjt {display:inline-block;z-index:20;position:absolute;left:0;top:50%;width:100%;font-size:40px;font-weight:bold;color:#fff;letter-spacing:3px;-webkit-animation:textBlindOut 0.5s ease forwards;animation: textBlindOut 0.5s ease forwards;}
+.works-box a .img-box img {width:100%;vertical-align:top;}
+.works-box a .text-box {display:block;padding:35px;color:#1b2236;border:4px #fff solid;-webkit-animation:borderColorOut 0.5s ease forwards;animation: borderColorOut 0.5s ease forwards;}
+.works-box a .text-box .title  {display:block;margin-bottom:20px;text-align:center;font-weight:bold;font-size:25px;}
+/*img-box Blind*/
+.works-box a.on .img-box::after {-webkit-animation:imgBlindIn 0.5s ease forwards;animation: imgBlindIn 0.5s ease forwards;}
+@-webkit-keyframes imgBlindOut {0% {opacity:0.4;} 100% {opacity:0;}}
+@keyframes imgBlindOut {0% {opacity:0.4;} 100% {opacity:0;}}
+@-webkit-keyframes imgBlindIn {0% {opacity:0;} 100% {opacity:0.4;}}
+@keyframes imgBlindIn {0% {opacity:0;} 100% {opacity:0.4;}}
+.works-box a.on .img-box .view-pjt {-webkit-animation:textBlindIn 0.5s ease forwards;animation: textBlindIn 0.5s ease forwards;}
+@-webkit-keyframes textBlindOut {0% {opacity:1;} 100% {opacity:0;}}
+@keyframes textBlindOut {0% {opacity:1;} 100% {opacity:0;}}
+@-webkit-keyframes textBlindIn {0% {opacity:0;} 100% {opacity:1;}}
+@keyframes textBlindIn {0% {opacity:0;} 100% {opacity:1;}}
+/*text-box border*/
+.works-box a.on .text-box {-webkit-animation:borderColorIn 0.5s ease forwards;animation: borderColorIn 0.5s ease forwards;}
+@-webkit-keyframes borderColorOut {0% {border:4px #1b2336solid;} 100% {border:4px #fff  solid;}}
+@keyframes borderColorOut {0% {border:4px #1b2336  solid;} 100% {border:4px #fff solid;}}
+@-webkit-keyframes borderColorIn {0% {border:4px #fff solid;} 100% {border:4px #1b2336 solid;}}
+@keyframes borderColorIn {0% {border:4px #fff solid;} 100% {border:4px #1b2336 solid;}}
+
+.works1 a .float-left {margin-right:3%;width:57%;}
+.works1 a .float-right {margin-left:3%;width:37%;}
+.works1 a .float-right .text-box {height:40%;}
+.works1 a .float-right .img-box {margin-top:15%;height:40%;border:1px #ccc solid;}
+.works1 a .img-box img {border:1px #ccc solid;}
+
+.works2 a .float-left {width:60%;}
+.works2 a .float-right {width:35%;}
+.works2 a .img-box img {border:1px #ccc solid;}
 
 .contact {height:100%;background-color: #000;}
 
